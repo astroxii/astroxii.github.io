@@ -1,4 +1,5 @@
 # My Portfolio
 
-Hey, seems like you came here too early. Updates are coming soon.
-25/02/2022
+Currently updating, soon lauching complete version. ~10/03/2022
+
+Check it out [here](https://astroxii.github.io)!

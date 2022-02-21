@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bem-vindo(a) ao Astro Weather. Fique informado sobre o clima em instantes aqui!">
+    <meta name="author" content="astroxii">
+    <link rel="short icon" type="image/x-icon" href="./images/favicon.ico">
+    <link rel="apple-touch-icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="manifest" href="./manifest.json">
+
+    <title>Astro Weather</title>
+</head>
+<body>
+    <header>
+        <a class="home-link" href="/examples/four/"><img src="./images/logo.png"/><h1>Astro Weather</h1></a>
+        <nav class="header-nav">
+            <ul class="header-nav-list">
+
+            </ul>
+        </nav>
+        <div class="header-controls">
+            <button id="translate" class="control-button">
+                <img src="./images/translate.png"/>
+                <p id="lang" class="control-text"></p>
+            </button>
+        </div>
+    </header>
+    <main>
+        <section id="welcome" class="section welcome">
+            <h2 class="section-title"><img src="./images/logo.png"/>Bem-vindo(a) ao Astro Weather.</h2>
+            <article class="section-content">
+                <p class="section-text">
+                    Aqui voc&ecirc; encontra o clima, mapa, informa&ccedil;&otilde;es meteorol&oacute;gicas da sua regi&atilde;o, 
+                    de forma f&aacute;cil e r&aacute;pida. Que tal experimentar? Pesquise sua regi&atilde;o e descubra se chove ou se faz
+                    sol, e muito mais!
+                </p>
+                <p id="error-message" class="error-message">Sem erros.</p>
+                <form class="weather-fetch-form" action="#" method="get">
+                    <div class="form-part">
+                        <input id="search-input" class="region-search" placeholder="Qual sua cidade?" type="search" spellcheck="false"/>
+                        <button class="search-button submit-btn" type="submit">Buscar</button>
+                    </div>
+                    <ul id="cities-list" class="cities-list">
+                        <p class="loading">Carregando cidades...</p>
+                    </ul>
+                    <p class="form-separator">OU</p>
+                    <button type="button" class="device-location-button submit-dl-btn">Usar minha localiza&ccedil;&atilde;o</button>
+                </form>
+            </article>
+        </section>
+        <div id="loader" class="loader">
+            Carregando o clima...
+            <div class="spinner"></div>
+        </div>
+        <div id="ClearDay" class="details">
+            <span class="sunglow"></span>
+            <span style="height: 50px; width: 50px; right: 12.5%; top: 15%; background-color: rgba(207, 204, 19, 0.1);" class="lensflare"></span>
+            <span style="height: 50px; width: 50px; right: 20%; top: 22.5%; background-color: rgba(207, 204, 19, 0.075);" class="lensflare"></span>
+            <span style="height: 50px; width: 50px; right: 27.5%; top: 30%; background-color: rgba(207, 204, 19, 0.05);" class="lensflare"></span>
+        </div>
+        <div id="ClearNight" class="details">
+            <span style="left: 10%; top: 10%; width: 4px; height: 4px;" class="star"></span>
+            <span style="left: 30%; top: 20%; width: 4px; height: 4px;" class="star"></span>
+            <span style="left: 80%; top: 15%; width: 5px; height: 5px;" class="star"></span>
+            <span style="left: 50%; top: 15%; width: 4px; height: 4px;" class="star"></span>
+            <span style="left: 25%; top: 35%; width: 5px; height: 5px;" class="star"></span>
+            <span style="left: 90%; top: 60%; width: 5px; height: 5px;" class="star"></span>
+            <span style="left: 10%; top: 55%; width: 5px; height: 5px;" class="star"></span>
+            <span style="left: 95%; top: 10%; width: 5px; height: 5px;" class="star"></span>
+        </div>
+        <div id="CloudyDay" class="details">
+            <span class="sunglow"></span>
+            <span style="height: 50px; width: 50px; right: 12.5%; top: 15%; background-color: rgba(207, 204, 19, 0.1);" class="lensflare"></span>
+            <span style="height: 50px; width: 50px; right: 20%; top: 22.5%; background-color: rgba(207, 204, 19, 0.075);" class="lensflare"></span>
+            <span style="height: 50px; width: 50px; right: 27.5%; top: 30%; background-color: rgba(207, 204, 19, 0.05);" class="lensflare"></span>
+            <img alt="" style="top: 0%; left: 0%;" class="cloud" src="./images/detail_cloud1.png"/>
+            <img alt="" style="top: 1%; left: 30%;" class="cloud" src="./images/detail_cloud3.png"/>
+            <img alt="" style="top: 15%; right: 5%;" class="cloud" src="./images/detail_cloud2.png"/>
+            <img alt="" style="top: 40%; left: 45%; transform: rotate(180deg);" class="cloud" src="./images/detail_cloud1.png"/>
+            <img alt="" style="top: 40%; left: 1%; transform: rotate(180deg);" class="cloud" src="./images/detail_cloud3.png"/>
+        </div>
+        <div id="CloudyNight" class="details">
+            <span style="left: 10%; top: 10%; width: 4px; height: 4px;" class="star"></span>
+            <span style="left: 30%; top: 20%; width: 4px; height: 4px;" class="star"></span>
+            <span style="left: 80%; top: 15%; width: 5px; height: 5px;" class="star"></span>
+            <span style="left: 50%; top: 15%; width: 4px; height: 4px;" class="star"></span>
+            <span style="left: 25%; top: 35%; width: 5px; height: 5px;" class="star"></span>
+            <span style="left: 90%; top: 60%; width: 5px; height: 5px;" class="star"></span>
+            <span style="left: 10%; top: 55%; width: 5px; height: 5px;" class="star"></span>
+            <span style="left: 95%; top: 10%; width: 5px; height: 5px;" class="star"></span>
+            <img alt="" style="top: 0%; left: 0%;" class="cloud" src="./images/detail_cloud1.png"/>
+            <img alt="" style="top: 1%; left: 30%;" class="cloud" src="./images/detail_cloud3.png"/>
+            <img alt="" style="top: 15%; right: 5%;" class="cloud" src="./images/detail_cloud2.png"/>
+            <img alt="" style="top: 40%; left: 45%; transform: rotate(180deg);" class="cloud" src="./images/detail_cloud1.png"/>
+            <img alt="" style="top: 40%; left: 1%; transform: rotate(180deg);" class="cloud" src="./images/detail_cloud3.png"/>
+        </div>
+        <div id="Mist" class="details">
+            <img alt="" style="width: 100%; height: 100%; left: 50%; transform: translate(-50%); opacity: 0.3;" class="cloud" src="./images/detail_cloud1.png"/>
+            <img alt="" style="width: 100%; height: 100%; left: 50%; transform: translate(-50%); opacity: 0.3;" class="cloud" src="./images/detail_cloud2.png"/>
+        </div>
+        <div id="Rain" class="details">
+            <img alt="" style="top: 0%; left: 0%;" class="cloud" src="./images/detail_cloud1.png"/>
+            <img alt="" style="top: 1%; left: 30%;" class="cloud" src="./images/detail_cloud3.png"/>
+            <img alt="" style="top: 15%; right: 5%;" class="cloud" src="./images/detail_cloud2.png"/>
+            <img alt="" style="top: 15%; left: 45%; transform: rotate(180deg);" class="cloud" src="./images/detail_cloud1.png"/>
+            <img alt="" style="top: 15%; left: 1%; transform: rotate(180deg);" class="cloud" src="./images/detail_cloud3.png"/>
+            <img alt="" style="top: 5%; right: 1%;" class="cloud" src="./images/detail_cloud3.png"/>
+            <span style="left: 30%; top: 20%;" class="raindrop"></span>
+            <span style="left: 70%; top: 25%;" class="raindrop"></span>
+            <span style="left: 25%; top: 30%;" class="raindrop"></span>
+            <span style="left: 45%; top: 35%;" class="raindrop"></span>
+            <span style="left: 35%; top: 50%;" class="raindrop"></span>
+            <span style="left: 75%; top: 45%;" class="raindrop"></span>
+            <span style="left: 25%; top: 60%;" class="raindrop"></span>
+            <span style="left: 75%; top: 65%;" class="raindrop"></span>
+            <span style="left: 55%; top: 65%;" class="raindrop"></span>
+            <span style="left: 40%; top: 70%;" class="raindrop"></span>
+            <span style="left: 60%; top: 80%;" class="raindrop"></span>
+            <span style="left: 35%; top: 80%;" class="raindrop"></span>
+            <span style="left: 70%; top: 80%;" class="raindrop"></span>
+        </div>
+        <div id="Thunderstorm" class="details">
+            <img alt="" style="top: 0%; left: 0%;" class="cloud" src="./images/detail_cloud1.png"/>
+            <img alt="" style="top: 1%; left: 30%;" class="cloud" src="./images/detail_cloud3.png"/>
+            <img alt="" style="top: 15%; right: 5%;" class="cloud" src="./images/detail_cloud2.png"/>
+            <img alt="" style="top: 15%; left: 45%; transform: rotate(180deg);" class="cloud" src="./images/detail_cloud1.png"/>
+            <img alt="" style="top: 15%; left: 1%; transform: rotate(180deg);" class="cloud" src="./images/detail_cloud3.png"/>
+            <img alt="" style="top: 5%; right: 1%;" class="cloud" src="./images/detail_cloud3.png"/>
+            <span style="left: 30%; top: 20%;" class="raindrop"></span>
+            <span style="left: 70%; top: 25%;" class="raindrop"></span>
+            <span style="left: 25%; top: 30%;" class="raindrop"></span>
+            <span style="left: 45%; top: 35%;" class="raindrop"></span>
+            <span style="left: 35%; top: 50%;" class="raindrop"></span>
+            <span style="left: 75%; top: 45%;" class="raindrop"></span>
+            <span style="left: 25%; top: 60%;" class="raindrop"></span>
+            <span style="left: 75%; top: 65%;" class="raindrop"></span>
+            <span style="left: 55%; top: 65%;" class="raindrop"></span>
+            <span style="left: 40%; top: 70%;" class="raindrop"></span>
+            <span style="left: 60%; top: 80%;" class="raindrop"></span>
+            <span style="left: 35%; top: 80%;" class="raindrop"></span>
+            <span style="left: 70%; top: 80%;" class="raindrop"></span>
+            <img alt="" src="./images/lightning_detail.png" class="lightning"/>
+        </div>
+        <div id="Snow" class="details">
+            <img alt="" style="top: 0%; left: 0%;" class="cloud" src="./images/detail_cloud1.png"/>
+            <img alt="" style="top: 1%; left: 30%;" class="cloud" src="./images/detail_cloud3.png"/>
+            <img alt="" style="top: 15%; right: 5%;" class="cloud" src="./images/detail_cloud2.png"/>
+            <img alt="" style="top: 15%; left: 45%; transform: rotate(180deg);" class="cloud" src="./images/detail_cloud1.png"/>
+            <img alt="" style="top: 15%; left: 1%; transform: rotate(180deg);" class="cloud" src="./images/detail_cloud3.png"/>
+            <img alt="" style="top: 5%; right: 1%;" class="cloud" src="./images/detail_cloud3.png"/>
+            <span style="left: 30%; top: 20%;" class="snowdrop"></span>
+            <span style="left: 70%; top: 25%;" class="snowdrop"></span>
+            <span style="left: 25%; top: 30%;" class="snowdrop"></span>
+            <span style="left: 45%; top: 35%;" class="snowdrop"></span>
+            <span style="left: 35%; top: 50%;" class="snowdrop"></span>
+            <span style="left: 75%; top: 45%;" class="snowdrop"></span>
+            <span style="left: 25%; top: 60%;" class="snowdrop"></span>
+            <span style="left: 75%; top: 65%;" class="snowdrop"></span>
+            <span style="left: 55%; top: 65%;" class="snowdrop"></span>
+            <span style="left: 40%; top: 70%;" class="snowdrop"></span>
+            <span style="left: 60%; top: 80%;" class="snowdrop"></span>
+            <span style="left: 35%; top: 80%;" class="snowdrop"></span>
+            <span style="left: 70%; top: 80%;" class="snowdrop"></span>
+        </div>
+        <div id="Tornado" class="details">
+            <img alt="" style="width: 100%; height: 100%; left: 50%; transform: translate(-50%) rotate(90deg); opacity: 0.3;" class="cloud" src="./images/detail_cloud3.png"/>
+            <img alt="" style="top: 10%; left: 5%; transform: rotate(50deg);" class="leaf" src="./images/leaf.png"/>
+            <img alt="" style="top: 30%; left: 30%; transform: rotate(180deg);" class="leaf" src="./images/leaf.png"/>
+            <img alt="" style="top: 40%; right: 30%; transform: rotate(70deg);" class="leaf" src="./images/leaf.png"/>
+            <img alt="" style="top: 20%; right: 20%; transform: rotate(200deg);" class="leaf" src="./images/leaf.png"/>
+            <img alt="" style="top: 50%; right: 10%; transform: rotate(10deg);" class="leaf" src="./images/leaf.png"/>
+        </div>
+        <section id="resume" class="section weathers resume">
+            <h2 class="section-title">Resumo do Clima</h2>            
+            <article class="section-content">
+                <p id="weather-date" class="weather-date"></p>
+                <div class="weather-city"><img alt="" src="./images/location.png"/><p id="city"></p></div>
+                <div class="weather-localtime">Hora local: <p id="local-time"></p></div>
+                <div class="weather-temp">
+                    <img alt="" src="./images/thermometer.png"/>
+                    <p><span id="temp" class="thermo-value"></span>°<span class="thermo-unit">C</span></p>
+                    <button title="Mudar unidade de medi&ccedil;&atilde;o." class="convert-button">°<span class="thermo-unit-c">F</span></button>
+                </div>
+                <p class="weather-feelslike">Sensa&ccedil;&atilde;o de <span id="feels-like" class="thermo-value"></span>°<span class="thermo-unit">C</span></p>
+                <div class="weather-minmax">
+                    <p>M&iacute;nima hoje: <span id="min" class="thermo-value"></span>°<span class="thermo-unit">C</span></p>
+                    <p>M&aacute;xima hoje: <span id="max" class="thermo-value"></span>°<span class="thermo-unit">C</span></p>
+                </div>
+                <img id="weather-icon" class="weather-icon" alt="Ícone do clima atual." src=""/>
+                <p id="status" class="weather-status"></p>
+            </article>
+        </section>
+        <div class="separator"></div>
+        <section id="extra" class="section weathers extra-info">
+            <h2 class="section-title">Mais Informa&ccedil;&otilde;es</h2>            
+            <article class="section-content">
+                <div class="atmospheric">
+                    <div class="atmos-info"><img alt="" src="./images/humidity.png">Umidade em <span id="humidity"></span>%
+                    <span class="info" information="A porcentagem de umidade indica a quantidade atual de vapor de &aacute;gua presente na atmosfera.">i</span></div>
+                    <div class="atmos-info"><img alt="" src="./images/pressure.png">Press&atilde;o Atmosf&eacute;rica <span id="pressure"></span>hPa
+                    <span class="info" information="A Press&atilde;o Atmosf&eacute;rica descreve a press&atilde;o exercida por massas de ar. Medi&ccedil;&otilde;es abaixo de 1013hPa indicam chances de chuva.">i</span></div>
+                    <div class="atmos-info"><img alt="" src="./images/visibility.png">Visibilidade <span id="visibility"></span>km
+                    <span class="info" information="A visibilidade m&aacute;xima, em quil&ocirc;metros, da qual um objeto pode ser observado. Uma boa visibilidade fica acima de 5km.">i</span></div>
+                    <div class="atmos-info"><img alt="" src="./images/cloud.png">Nuvens <span id="cloudiness"></span>%
+                        <span class="info" information="Essa &eacute; a porcentagem de nuvens vis&iacute;veis no c&eacute;u.">i</span></div>
+                </div>
+                <div class="wind">
+                    <div class="atmos-info"><img alt="" src="./images/wind.png">Vento a <span id="wind-speed"></span>km/h
+                    <span class="info" information="Velocidade do vento normal, expressa em quil&ocirc;metros por hora.">i</span></div>
+                    <div class="atmos-info"><img alt="" src="./images/wind.png">Rajadas a <span id="wind-gust"></span>km/h
+                    <span class="info" information="Velocidade das rajadas s&uacute;bitas de vento, com mais de 18km/h, durando menos de 20 segundos.">i</span></div>
+                    <div class="wind-direction">
+                        <span id="wind-direction" class="wind-pointer"></span>
+                        <span style="margin-bottom: 72.5px;" class="wind-pointer-dir">N</span>
+                        <span style="margin-left: 72.5px;" class="wind-pointer-dir">L</span>
+                        <span style="margin-top: 72.5px;" class="wind-pointer-dir">S</span>
+                        <span style="margin-right: 72.5px;" class="wind-pointer-dir">O</span>
+                        <span style="margin-bottom: 96px;" class="wind-pointer-line"></span>
+                        <span style="margin-left: 96px; transform: rotate(90deg);" class="wind-pointer-line"></span>
+                        <span style="margin-top: 96px; transform: rotate(180deg);" class="wind-pointer-line"></span>
+                        <span style="margin-right: 96px; transform: rotate(270deg);" class="wind-pointer-line"></span>
+                    </div>
+                    <span class="info" information="A dire&ccedil;&atilde;o para qual o vento segue, demonstrada pela seta vermelha.">i</span>
+                </div>
+                <div class="sun">
+                    <div class="sun-info"><img src="./images/sunrise.png"/><p>Alvorada</p><p id="sunrise"></p></div>
+                    <div class="sun-info"><img src="./images/sunset.png"/><p>Crep&uacute;sculo</p><p id="sunset"></p></div>
+                </div>
+            </article>
+        </section>
+        <nav class="bottom-nav">
+            <ul class="bottom-nav-list">
+                <li><button title="Mudar unidade de medi&ccedil;&atilde;o." class="convert-button bottom-convert-button">°<span class="thermo-unit-c">F</span></button></li>
+            </ul>
+        </nav>
+    </main>
+    <footer>
+        <p class="data-credits">Data from <a target="_blank" rel="nofollow external" href="https://openweathermap.org">OpenWeatherMap</a>.</p>
+        <p class="data-credits">Weather Icons from Vecteezy <a target="_blank" href="https://www.vecteezy.com/free-vector/weather-icons">here</a>.</p>
+        <p class="data-credits">Other icons from OnlineWebFonts, FlatIcon.</p>
+        <!--
+            Icons from Vecteezy, and Web searching. Only the page design was developed by me.
+            All images have free license or are shown with the "Free" keyword, 
+            meaning none of them have any price applied nor are private property of anyone. 
+            All credits requested are given. In addition, this is a personal showcase project only.
+
+            Free high quality images at https://www.pexels.com
+        -->
+        <div class="devby">Developed by <a target="_blank" href="https://github.com/astroxii">astroxii</a>, 2021.</div>
+    </footer>
+
+    <script src="./utils/setWeather.js"></script>
+</body>
+</html>
