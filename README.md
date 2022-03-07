@@ -1,7 +1,5 @@
-# My Portfolio
+# astroxii's Portfolio
 
-Currently updating, soon lauching complete version. ~10/03/2022
+Hey, you got inside my portfolio's repository. You're welcome to check it working [here](https://astroxii.github.io). Thanks for visiting!
 
-Check it out [here](https://astroxii.github.io).
-
-_*Page is partially translatable._
+_* Some of the content may not be translatable for now, updates to come in near future._
