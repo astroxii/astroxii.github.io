@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/project/krystal/static/css/main.f9c6cbe3.css",
+    "main.js": "/project/krystal/static/js/main.4641aa7e.js",
+    "static/media/adventure_awaits.jpg": "/project/krystal/static/media/adventure_awaits.68e603f611e2b56eed9c.jpg",
+    "static/media/welcome_banner.jpg": "/project/krystal/static/media/welcome_banner.f6d0fad35a09209f9833.jpg",
+    "index.html": "/project/krystal/index.html",
+    "main.f9c6cbe3.css.map": "/project/krystal/static/css/main.f9c6cbe3.css.map",
+    "main.4641aa7e.js.map": "/project/krystal/static/js/main.4641aa7e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f9c6cbe3.css",
+    "static/js/main.4641aa7e.js"
+  ]
+}
