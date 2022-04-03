@@ -359,7 +359,7 @@ const showWeather = (weather) =>
         const localdate = new Date((date.getTime()+(date.getTimezoneOffset()*60*1000))+(weather.timezone*1000));
 
         document.getElementById("weather-date").innerText = 
-        `Atualizado ${date.getDate() > 9 ? date.getDate() : "0"+date.getDate()}/${date.getMonth()+1 > 9 ? date.getMonth()+1 : "0"+date.getMonth()+1}/${date.getFullYear()}, ${date.getHours() > 9 ? date.getHours() : "0"+date.getHours()}:${date.getMinutes() > 9 ? date.getMinutes() : "0"+date.getMinutes()}.`; // setup counting in localStorage
+        `Atualizado ${date.getDate() > 9 ? date.getDate() : "0"+date.getDate()}/${(date.getMonth()+1) > 9 ? (date.getMonth()+1) : "0"+(date.getMonth()+1)}/${date.getFullYear()}, ${date.getHours() > 9 ? date.getHours() : "0"+date.getHours()}:${date.getMinutes() > 9 ? date.getMinutes() : "0"+date.getMinutes()}.`; // setup counting in localStorage
         document.getElementById("city").innerHTML = `${weather.name}, ${weather.sys.country}`;
         document.getElementById("temp").innerHTML = `${weather.main?.temp.toFixed(1)}`;
         document.getElementById("status").innerText = weather.weather[0]?.description
