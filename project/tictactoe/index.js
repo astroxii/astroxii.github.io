@@ -174,6 +174,8 @@ function endgame(winpos)
 
     sessionStorage.setItem("Playing", "false");
     document.querySelector(".start-button").removeAttribute("disabled");
+    document.getElementById("Xname").removeAttribute("disabled");
+    document.getElementById("Oname").removeAttribute("disabled");
     document.getElementById("act-player").innerText = "---";
     document.getElementById("timer").innerText = "---";
 }
@@ -199,6 +201,9 @@ function reset()
     sessionStorage.setItem("Playing", "false");
     sessionStorage.removeItem("Player");
     sessionStorage.removeItem("Timer");
+    document.getElementById("Xname").removeAttribute("disabled");
+    document.getElementById("Oname").removeAttribute("disabled");
+    document.querySelector(".start-button").removeAttribute("disabled");
     stopTimer();
     document.getElementById("act-player").innerText = "---";
     document.getElementById("timer").innerText = "---";
