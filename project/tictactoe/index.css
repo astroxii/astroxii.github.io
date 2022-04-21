@@ -1,0 +1,176 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+html, body
+{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+header
+{
+    width: 100%;
+    height: 10vh;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-bottom: thin solid gray;
+    box-shadow: 0 0 5px 0 gray;
+}
+
+.title-div
+{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: auto;
+    text-align: center;
+}
+
+#lang-button
+{
+    height: 40px;
+    width: auto;
+    padding: 10px;
+    right: 10px;
+    background-color: black;
+    border: 2px gray solid;
+    border-radius: 2px;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    text-transform: uppercase;
+    width: fit-content;
+    position: absolute;
+}
+
+.mt-over
+{
+    color: gray;
+    font-size: 20px;
+}
+
+.main-title
+{
+    color: green;
+    font-size: 35px;
+}
+
+.gamearea
+{
+    width: 90%;
+    height: 70vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin: 2.5vh auto 2.5vh auto;
+    gap: 15px;
+}
+
+.piece
+{
+    background-color: rgb(15, 15, 15);
+    outline: none;
+    text-align: center;
+    border: thin solid gray;
+    box-shadow: 0 0 5px 0 gray;
+    color: green;
+    cursor: pointer;
+    font-size: 50px;
+}
+.piece:enabled:hover
+{
+    background-color: rgba(0, 255, 0, 0.5);
+    color: white;
+}
+
+.controls
+{
+    width: 90%;
+    height: 15vh;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.gamecontrol
+{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.gamecontrol:first-of-type::after
+{
+    content: '';
+    position: absolute;
+    z-index: 2;
+    background-color: black;
+    width: 100%;
+}
+.info
+{
+    color: white;
+    font-size: 20px;
+}
+.start-button
+{
+    width: 50%;
+    background-color: green;
+    color: white;
+    padding: 10px 5px;
+    border-radius: 2px;
+    font-size: 27px;
+    border: none;
+    cursor: pointer;
+    margin: auto;
+    transition: 0.2s ease-in-out;
+}
+.start-button:hover
+{
+    background-color: rgb(0, 161, 0);
+}
+.start-button:disabled
+{
+    background-color: gray;
+}
+.name-label
+{
+    width: 50%;
+    color: white;
+    font-size: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+#Xname, #Oname
+{
+    width: 100%;
+    padding: 2.5px 5px;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 18px;
+    border-bottom: 2px white solid;
+    background-color: transparent;
+    color: rgb(0, 189, 0);
+}

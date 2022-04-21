@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="./index.css">
+
+    <title translate-id="title">TicTacToe</title>
+</head>
+<body>
+    <header>
+        <div class="title-div">
+            <span class="mt-over">astroxii's classics collection</span>
+            <h1 translate-id="title" class="main-title">TicTacToe</h1>
+        </div>
+        <button onclick="translatePage(this)" type="button" id="lang-button"></button>
+    </header>
+    <main>
+        <section class="gamearea">
+            <button onclick="play(this)" type="button" class="piece"></button>
+            <button onclick="play(this)" type="button" class="piece"></button>
+            <button onclick="play(this)" type="button" class="piece"></button>
+            <button onclick="play(this)" type="button" class="piece"></button>
+            <button onclick="play(this)" type="button" class="piece"></button>
+            <button onclick="play(this)" type="button" class="piece"></button>
+            <button onclick="play(this)" type="button" class="piece"></button>
+            <button onclick="play(this)" type="button" class="piece"></button>
+            <button onclick="play(this)" type="button" class="piece"></button>
+        </section>
+        <section class="controls">
+            <div class="gamecontrol">
+                <p class="info"><span translate-id="plnow">Playing now:</span><span id="act-player">---</span></p>
+                <p class="info"><span translate-id="timer">Time to play:</span><span id="timer">---</span></p>
+            </div>
+            <div class="gamecontrol">
+                <button translate-id="start" onclick="start(this)" type="button" class="start-button">PLAY</button>
+            </div>
+            <div class="gamecontrol">
+                <label class="name-label">
+                    <span translate-id="plxname">Player [X] name:</span>
+                    <input type="text" id="Xname" spellcheck="false">
+                </label>
+                <label class="name-label">
+                    <span translate-id="ploname">Player [O] name:</span>
+                    <input type="text" id="Oname" spellcheck="false">
+                </label>
+            </div>
+        </section>
+    </main>
+
+    <script src="./index.js"></script>
+    <script src="./translate.js"></script>
+</body>
+</html>
