@@ -43,15 +43,12 @@ function start(btn)
 
 function timer()
 {
-    const end = new Date();
-    end.setSeconds(end.getSeconds()+10);
     sessionStorage.setItem("Timer", "10");
     document.getElementById("timer").innerText = `${sessionStorage.getItem("Timer")}s`;
 
     Timer = window.setInterval(function()
     {
-        const now = new Date();
-        if(now.getSeconds() !== end.getSeconds()+1)
+        if(Number.parseInt(sessionStorage.getItem("Timer")) > 0)
         {
             sessionStorage.setItem("Timer", `${Number.parseInt(sessionStorage.getItem("Timer"))-1}`);
             document.getElementById("timer").innerText = `${sessionStorage.getItem("Timer")}s`;
