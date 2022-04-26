@@ -144,3 +144,14 @@ header
 {
     background-color: gray;
 }
+
+.gameover
+{
+    color: red;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%) translateX(-80%);
+    display: none;
+}

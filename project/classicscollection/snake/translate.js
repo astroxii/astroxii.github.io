@@ -3,12 +3,14 @@ const dictionary =
     "en":
     {
         "start": "PLAY",
-        "score": "Score: "
+        "score": "Score: ",
+        "gameover": "Game Over!"
     },
     "pt-br":
     {
         "start": "JOGAR",
-        "score": "Pontos: "
+        "score": "Pontos: ",
+        "gameover": "Derrota!"
     }
 }
 

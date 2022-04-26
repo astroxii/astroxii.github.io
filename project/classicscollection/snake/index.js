@@ -13,6 +13,7 @@ function start(btn)
 {
     if(sessionStorage.getItem("Running") === "false")
     {
+        reset();
         sessionStorage.setItem("Running", "true");
         const snake = {body: [[0, 0], [0, 1], [0, 2]], direction: 2};
         sessionStorage.setItem("Snake", JSON.stringify(snake));
@@ -300,8 +301,7 @@ function endgame()
     sessionStorage.setItem("Score", "0");
     console.clear();
     document.getElementById("start-btn").removeAttribute("disabled");
-
-    console.log("Game over!");
+    document.getElementById("gameover").style.display = "initial";
 }
 
 function reset()
@@ -310,6 +310,7 @@ function reset()
     sessionStorage.removeItem("Snake");
     sessionStorage.removeItem("Apple");
     sessionStorage.setItem("Score", "0");
+    document.getElementById("gameover").style.display = "none";
 }
 
 window.addEventListener("keydown", function(e)
