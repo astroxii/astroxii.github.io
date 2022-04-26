@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="./index.css">
+
+    <title>Snake</title>
+</head>
+<body>
+    <header>
+        <div class="title-div">
+            <span class="mt-over">astroxii's classics collection</span>
+            <h1 class="main-title">Snake</h1>
+        </div>
+        <button onclick="translatePage(this)" type="button" id="lang-button"></button>
+    </header>
+    <main>
+        <p class="score"><span translate-id="score">Score: </span><span id="score"></span></p>
+        <section class="gamearea">
+        </section>
+        <section class="controls">
+            <button id="start-btn" class="start-button" translate-id="start" type="button" onclick="start(this)"></button>
+        </section>
+    </main>
+
+    <script src="./index.js"></script>
+    <script src="./translate.js"></script>
+</body>
+</html>
