@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entry point for astroxii's classics collection games.">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
     <title>astroxii's classics collection</title>
 </head>
 <body>
@@ -47,7 +50,19 @@
     </style>
 
     <h1 class="mt">astroxii's classics collection</h1>
-    <a class="lk" rel="next" href="./tictactoe">TicTacToe</a>
+    <a class="lk" rel="next" href="./tictactoe" translate-id="0">TicTacToe</a>
     <a class="lk" rel="next" href="./snake">Snake</a>
+    <a class="lk" rel="next" href="./memorygame" translate-id="1">Snake</a>
+
+    <script defer>
+        document.querySelector("html").lang = localStorage.getItem("Language") ? localStorage.getItem("Language").toLowerCase() : "en";
+
+        const dict = {"pt-br": {"0": "Jogo da Velha", "1": "Jogo da Memória"}, "en": {"0": "TicTacToe", "1": "Memory Game"}};
+
+        document.querySelectorAll("[translate-id]").forEach((t) =>
+        {
+            t.innerHTML = dict[localStorage.getItem("Language") ? localStorage.getItem("Language") : "en"][t.getAttribute("translate-id")];
+        });
+    </script>
 </body>
 </html>
