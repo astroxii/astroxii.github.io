@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="./index.css">
+
+    <title translate-id="title">Memory Game</title>
+</head>
+<body>
+    <header>
+        <div class="title-div">
+            <span class="mt-over">astroxii's classics collection</span>
+            <h1 translate-id="title" class="main-title">Memory Game</h1>
+        </div>
+        <button onclick="translatePage(this)" type="button" id="lang-button"></button>
+    </header>
+    <main>
+        <section class="gamearea">
+            <button onclick="play(this, 0)" type="button" class="piece"></button>
+            <button onclick="play(this, 1)" type="button" class="piece"></button>
+            <button onclick="play(this, 2)" type="button" class="piece"></button>
+            <button onclick="play(this, 3)" type="button" class="piece"></button>
+            <button onclick="play(this, 4)" type="button" class="piece"></button>
+            <button onclick="play(this, 5)" type="button" class="piece"></button>
+            <button onclick="play(this, 6)" type="button" class="piece"></button>
+            <button onclick="play(this, 7)" type="button" class="piece"></button>
+            <button onclick="play(this, 8)" type="button" class="piece"></button>
+            <button onclick="play(this, 9)" type="button" class="piece"></button>
+            <button onclick="play(this, 10)" type="button" class="piece"></button>
+            <button onclick="play(this, 11)" type="button" class="piece"></button>
+            <button onclick="play(this, 12)" type="button" class="piece"></button>
+            <button onclick="play(this, 13)" type="button" class="piece"></button>
+            <button onclick="play(this, 14)" type="button" class="piece"></button>
+            <button onclick="play(this, 15)" type="button" class="piece"></button>
+        </section>
+        <section class="controls">
+            <p id="win" translate-id="win"></p>
+            <p class="showtimer"><span translate-id="showtimer">Showing in: </span><span id="showtimer"></span>s</p>
+            <button translate-id="start" onclick="start(this)" type="button" class="start-button">PLAY</button>
+        </section>
+    </main>
+
+    <script src="./index.js"></script>
+    <script src="./translate.js"></script>
+</body>
+</html>
